@@ -6,7 +6,6 @@ const mailOptions = {
   from: "ltest7526@gmail.com",
   to: "edirisinghe.nimesha@gmail.com",
   subject: "Email from Node-App: A Test Message!",
-  // text: "Some content",
   html: `<html><body><i>Hello World....</i><br/><a href="https://www.qries.com/">
   <img alt="Qries" src="https://www.qries.com/images/banner_logo.png"
   width=150" height="70">
@@ -22,7 +21,7 @@ const transporter = nodemailer.createTransport({
 });
 
 var task = cron.schedule(
-  "*/5 * * * * *",
+  "* */10 * * * *",
   () => {
     // Send e-mail
     transporter.sendMail(mailOptions, function (error, info) {
