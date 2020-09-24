@@ -13,10 +13,10 @@ const mailOptions = {
 };
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  service: process.env.SERVICE,
   auth: {
-    user: "ltest7526@gmail.com",
-    pass: "1Qaz2wsx#",
+    user: process.env.USER_NAME,
+    pass: process.env.PASSWORD,
   },
 });
 
@@ -28,7 +28,7 @@ var task = cron.schedule(
       if (error) {
         console.log(error);
       } else {
-        console.log("Email sent: " + info.response);
+        console.log("Email sent : " + info.response);
       }
     });
   },
